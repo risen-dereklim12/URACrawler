@@ -14,3 +14,4 @@ data = data["Result"]
 p = Processor(data)
 streets = p.get_streets()
 hillViewTransactions = p.get_transactions_by_street("HILLVIEW AVENUE")
+MarchTransactions = p.get_transactions_by_month("03")

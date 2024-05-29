@@ -20,9 +20,13 @@ class Processor:
                 transactions = d["transaction"]
         return transactions
     
-    def get_transactions_by_street_and_block(self, street, block):
+    def get_transactions_by_month(self, month):
         transactions = []
-        for d in self.data:
-            if d["street"] == street and d["block"] == block:
-                transactions = d["transaction"]
+        for street in self.data:
+            # @todo: filter transactions by month 
+            for txn in street["transaction"]:
+                cd = txn["contractDate"]
+                if cd[:2] == month:
+                    transactions.append(txn)
+        print(transactions)
         return transactions
